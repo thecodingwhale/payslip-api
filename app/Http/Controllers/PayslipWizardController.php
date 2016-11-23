@@ -26,17 +26,17 @@ class PayslipWizardController extends Controller
     {
         $layouts = [
             [
-                'id' => 2,
-                'name' => 'Full Width Layout',
-                'value' => 'full-width',
-                'selected' => false,
-                'options' => $this->options()
-            ],
-            [
                 'id' => 1,
                 'name' => 'Two Column Layout',
                 'value' => 'two-column',
                 'selected' => true,
+                'options' => $this->options()
+            ],
+            [
+                'id' => 2,
+                'name' => 'Full Width Layout',
+                'value' => 'full-width',
+                'selected' => false,
                 'options' => $this->options()
             ]
         ];
@@ -59,52 +59,62 @@ class PayslipWizardController extends Controller
                     [
                         'id' => 1,
                         'name' => 'Employee Name',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Juan Dela Cruz',
+                        'selected' => true
                     ],
                     [
                         'id' => 2,
                         'name' => 'Employee ID',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Emp-003',
+                        'selected' => true
                     ],
                     [
                         'id' => 3,
                         'name' => 'Gender',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'June 20, 2014',
+                        'selected' => true
                     ],
                     [
                         'id' => 4,
                         'name' => 'Photo',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => '',
+                        'selected' => true
                     ],
                     [
                         'id' => 5,
                         'name' => 'Birth Date',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'January 01, 1985',
+                        'selected' => false
                     ],
                     [
                         'id' => 6,
                         'name' => 'Mobile',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => '09163251796',
+                        'selected' => false
                     ],
                     [
                         'id' => 7,
                         'name' => 'Telephone',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => '024568254',
+                        'selected' => false
                     ],
                     [
                         'id' => 8,
                         'name' => 'Email',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'juan.delacruz@email.com',
+                        'selected' => false
                     ],
                     [
                         'id' => 9,
                         'name' => 'Address',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Makati City, PH',
+                        'selected' => false
                     ],
                     [
                         'id' => 10,
                         'name' => 'Zip',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => '4114',
+                        'selected' => false
                     ]
                 ]
             ],
@@ -115,22 +125,26 @@ class PayslipWizardController extends Controller
                     [
                         'id' => 1,
                         'name' => 'Rank',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Rank and File',
+                        'selected' => false
                     ],
                     [
                         'id' => 2,
                         'name' => 'Employment Type',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Regular',
+                        'selected' => false
                     ],
                     [
                         'id' => 3,
                         'name' => 'Department',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Sales Department',
+                        'selected' => false
                     ],
                     [
                         'id' => 4,
                         'name' => 'Date Hired',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'June 01, 2015',
+                        'selected' => true
                     ]
                 ]
             ],
@@ -141,58 +155,38 @@ class PayslipWizardController extends Controller
                     [
                         'id' => 1,
                         'name' => 'Tax Status',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Single',
+                        'selected' => false
                     ],
                     [
                         'id' => 2,
                         'name' => 'Hourly Rate',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => '600 php/hr',
+                        'selected' => false
                     ],
                     [
                         'id' => 3,
                         'name' => 'Payroll Group',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Payroll Group A',
+                        'selected' => false
                     ],
                     [
                         'id' => 4,
                         'name' => 'Payroll Cycle',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Monthly',
+                        'selected' => false
                     ],
                     [
                         'id' => 5,
                         'name' => 'Cost Center',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'Cost Center',
+                        'selected' => false
                     ],
                     [
                         'id' => 6,
                         'name' => 'Prepared By',
-                        'selected' => $this->getRandomBoolean()
-                    ],
-                ]
-            ],
-            [
-                'id' => 4,
-                'name' => 'Mandatory Deduction',
-                'settings' => [
-                    [
-                        'id' => 1,
-                        'name' => 'SS',
-                        'selected' => $this->getRandomBoolean()
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => 'TIN',
-                        'selected' => $this->getRandomBoolean()
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => 'HDMF',
-                        'selected' => $this->getRandomBoolean()
-                    ],
-                    [
-                        'id' => 4,
-                        'name' => 'PhilHealth',
-                        'selected' => $this->getRandomBoolean()
+                        'value' => 'John Doe',
+                        'selected' => false
                     ],
                 ]
             ]
