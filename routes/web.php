@@ -21,6 +21,5 @@ Route::group([
 ], function () {
     Route::group(['prefix' => 'payslip-wizard'], function () {
         Route::get('templates', 'PayslipWizardController@templates');
-        Route::get('layouts', 'PayslipWizardController@layouts');
     });
 });

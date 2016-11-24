@@ -16,17 +16,10 @@ class PayslipWizardController extends Controller
 
     public function templates()
     {
-        $templates = [];
-        return $this->jsonResponse([
-            'templates' => $templates
-        ]);
-    }
-
-    public function layouts()
-    {
-        $layouts = [
+        $templates = [
             [
                 'id' => 1,
+                'type' => 'default',
                 'name' => 'Two Column Layout',
                 'value' => 'two-column',
                 'selected' => true,
@@ -34,19 +27,52 @@ class PayslipWizardController extends Controller
             ],
             [
                 'id' => 2,
+                'type' => 'default',
                 'name' => 'Full Width Layout',
                 'value' => 'full-width',
                 'selected' => false,
                 'options' => $this->options()
             ]
         ];
-        return $this->jsonResponse([
-            'layouts' => $layouts
-        ]);
-    }
 
-    public function getRandomBoolean() {
-        return .01 * rand(0, 100) >= .5;
+        $templatesCustom = [
+            [
+                'id' => 1,
+                'type' => 'default',
+                'name' => 'Two Column Layout',
+                'value' => 'two-column',
+                'selected' => false,
+                'options' => $this->options()
+            ],
+            [
+                'id' => 2,
+                'type' => 'default',
+                'name' => 'Full Width Layout',
+                'value' => 'full-width',
+                'selected' => false,
+                'options' => $this->options()
+            ],
+            [
+                'id' => 3,
+                'type' => 'default',
+                'name' => 'Full Width Layout',
+                'value' => 'full-width',
+                'selected' => false,
+                'options' => $this->options()
+            ],
+            [
+                'id' => 4,
+                'type' => 'custom',
+                'name' => 'Custom Two Column Layout',
+                'value' => 'two-column',
+                'selected' => true,
+                'options' => $this->options()
+            ]
+        ];
+
+        return $this->jsonResponse([
+            'templates' => $templatesCustom
+        ]);
     }
 
     public function options()
@@ -278,4 +304,3 @@ class PayslipWizardController extends Controller
         return $options;
     }
 }
-
