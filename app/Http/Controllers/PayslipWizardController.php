@@ -189,6 +189,90 @@ class PayslipWizardController extends Controller
                         'selected' => false
                     ],
                 ]
+            ],
+            [
+                'id' => 4,
+                'name' => 'Employer Contribution',
+                'settings' => [
+                    [
+                        'id' => 1,
+                        'name' => 'SSS',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => 'HDMF',
+                        'value' => '50.00',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 3,
+                        'name' => 'PhilHealth',
+                        'value' => '50.00',
+                        'selected' => true
+                    ]
+                ]
+            ],
+            [
+                'id' => 5,
+                'name' => 'Year to Date Figures',
+                'settings' => [
+                    [
+                        'id' => 1,
+                        'name' => 'Gross Income',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => 'Taxable Income',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 3,
+                        'name' => 'Withholding Tax',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 4,
+                        'name' => 'Net Pay',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 5,
+                        'name' => 'SSS Employer',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 6,
+                        'name' => 'SSS EC Employer',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 7,
+                        'name' => 'Gross Income',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 8,
+                        'name' => 'PhilHealth Employer',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                    [
+                        'id' => 9,
+                        'name' => 'HDMF Employer',
+                        'value' => '92.10',
+                        'selected' => true
+                    ],
+                ]
             ]
         ];
         return $options;
