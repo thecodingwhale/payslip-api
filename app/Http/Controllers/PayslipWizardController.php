@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Option;
+use App\Setting;
+use App\Template;
 
 class PayslipWizardController extends Controller
 {
@@ -16,20 +19,27 @@ class PayslipWizardController extends Controller
 
     public function templates()
     {
+        $templates = [];
+        foreach (Template::all() as $template) {
+            $templates[] = [
+                'type' => $template->type,
+                'category' => $template->category,
+                'selected' => $template->selected,
+            ];
+        }
+
         $templates = [
             [
                 'id' => 1,
-                'type' => 'default',
-                'name' => 'Two Column Layout',
-                'value' => 'two-column',
+                'category' => 'default',
+                'type' => 'two-column',
                 'selected' => true,
                 'options' => $this->options()
             ],
             [
                 'id' => 2,
-                'type' => 'default',
-                'name' => 'Full Width Layout',
-                'value' => 'full-width',
+                'category' => 'default',
+                'type' => 'full-width',
                 'selected' => false,
                 'options' => $this->options()
             ]
@@ -38,40 +48,36 @@ class PayslipWizardController extends Controller
         $templatesCustom = [
             [
                 'id' => 1,
-                'type' => 'default',
-                'name' => 'Two Column Layout',
-                'value' => 'two-column',
+                'category' => 'default',
+                'type' => 'two-column',
                 'selected' => false,
                 'options' => $this->options()
             ],
             [
                 'id' => 2,
-                'type' => 'default',
-                'name' => 'Full Width Layout',
-                'value' => 'full-width',
+                'category' => 'default',
+                'type' => 'full-width',
                 'selected' => false,
                 'options' => $this->options()
             ],
             [
                 'id' => 3,
-                'type' => 'default',
-                'name' => 'Full Width Layout',
-                'value' => 'full-width',
+                'category' => 'custom',
+                'type' => 'full-width',
                 'selected' => false,
                 'options' => $this->options()
             ],
             [
                 'id' => 4,
-                'type' => 'custom',
-                'name' => 'Custom Two Column Layout',
-                'value' => 'two-column',
+                'category' => 'custom',
+                'type' => 'two-column',
                 'selected' => true,
                 'options' => $this->options()
             ]
         ];
 
         return $this->jsonResponse([
-            'templates' => $templatesCustom
+            'templates' => $templates
         ]);
     }
 
