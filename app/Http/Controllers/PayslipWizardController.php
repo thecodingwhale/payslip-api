@@ -7,6 +7,7 @@ use App\Option;
 use App\Setting;
 use App\Template;
 use App\TemplateDetail;
+use Carbon\Carbon;
 
 class PayslipWizardController extends Controller
 {
@@ -56,6 +57,41 @@ class PayslipWizardController extends Controller
 
         return $this->jsonResponse([
             'templates' => $templates
+        ]);
+    }
+
+    public function save(Request $request)
+    {
+        $input = json_decode( $request->getContent() );
+
+        Template::where('id', $input->activeIndex)
+            ->update(['selected' => false]);
+
+        $template = Template::create([
+            'type' => $input->type,
+            'category' => 'custom',
+            'selected' => true
+        ]);
+
+        $templateDetails = [];
+        $now = Carbon::now('utc')->toDateTimeString();
+        foreach ($input->options as $option) {
+            foreach ($option->settings as $setting) {
+                $templateDetails[] = [
+                    'template_id' => $template->id,
+                    'option_id' => $option->id,
+                    'setting_id' => $setting->id,
+                    'selected' => $setting->selected,
+                    'created_at'=> $now,
+                    'updated_at'=> $now
+                ];
+            }
+        }
+
+        TemplateDetail::insert($templateDetails);
+
+        return $this->jsonResponse([
+            'foo' => 'bar'
         ]);
     }
 

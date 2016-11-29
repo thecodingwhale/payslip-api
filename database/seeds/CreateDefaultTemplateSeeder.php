@@ -13,8 +13,8 @@ class CreateDefaultTemplateSeeder extends Seeder
      */
     public function run()
     {
-        // $this->createDefaultOnlyTemplates();
-        $this->addCustomTemplates();
+        $this->createDefaultOnlyTemplates();
+        // $this->addCustomTemplates();
     }
 
     private function createDefaultOnlyTemplates()
