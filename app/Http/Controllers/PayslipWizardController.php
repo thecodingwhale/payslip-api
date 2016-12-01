@@ -91,8 +91,22 @@ class PayslipWizardController extends Controller
         TemplateDetail::insert($templateDetails);
 
         return $this->jsonResponse([
-            'foo' => 'bar'
+            'activeIndex' => $template->id,
+            'selected' => true,
+            'category' => $template->category
         ]);
     }
 
+    public function setActiveTemplate(Request $request)
+    {
+        $input = json_decode( $request->getContent() );
+
+        Template::where('selected', 1)->update(['selected' => 0]);
+        $template = Template::find($input->templateId);
+        $template->update(['selected' => 1]);
+
+        return $this->jsonResponse([
+            'template' => $template->toArray()
+        ]);
+    }
 }
